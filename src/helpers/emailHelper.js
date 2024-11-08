@@ -28,7 +28,7 @@ import nodemailer from "nodemailer";
             <p>Gracias por contactarnos.</p>
             <p>Tu información esta siendo revisada</p>
             <p>Si tú no creaste este lead, puedes ignorar el mensaje.</p>
-            <p><img src="https://ibb.co/TLLpG5Q" alt="Imagen"></p> 
+             <p><a href='https://postimages.org/' target='_blank'><img src='https://i.postimg.cc/76tWWTJf/cumtual.jpg' border='0' alt='cumtual'/></a></p>
           `
         });
         console.log('Has been sent succesfully. .');
