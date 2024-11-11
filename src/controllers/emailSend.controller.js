@@ -1,5 +1,5 @@
 import { getConnection } from "../database/conexion.js";
-import {senEmailVerify} from "../helpers/emailHelper.js";
+import {sendEmailClient, sendEmailCumtual} from "../helpers/emailHelper.js";
 
 
 export const saveLead = async (req,res) =>
@@ -25,7 +25,7 @@ export const saveLead = async (req,res) =>
         strProjectDescription
     ]
 
-    console.log("Parameters",parameters);
+   // console.log("Parameters",parameters);
 
     try{
          //Conection to bd
@@ -34,13 +34,14 @@ export const saveLead = async (req,res) =>
      const [results] = await connection.execute('CALL sp_tbSaveLeads(?, ?, ?, ?, ?, ?, ?)',parameters);
 
       // Send validate email
-      await senEmailVerify(strEmail, strFullName,);
+      await sendEmailClient(strEmail, strFullName,);
+      await sendEmailCumtual(strEmail,strEmail,strProjectDescription,strPhone);
       return res.status(200).json({ message: 'Lead save' });
     }catch(error){
         console.log("Can't conection to store procedure");
     }
     
- }  catch{
+ }  catch(error){
 
- } 
+} 
 }
